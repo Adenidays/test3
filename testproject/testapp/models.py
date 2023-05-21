@@ -8,14 +8,7 @@ class Category(models.Model):
     def __str__(self):
         return f"{self.name} - {self.description}"
 
-class Product(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=8, decimal_places=2)
-    categories = models.CharField(max_length=200)
 
-    def __str__(self):
-        return f"{self.name} - {self.description} - {self.price} - {self.categories}"
 
 class Review(models.Model):
     product = models.CharField(max_length=100)
@@ -25,3 +18,14 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.product} - {self.author} - {self.text} - {self.rating}"
+
+
+
+class User(models.Model):
+    name = models.CharField(max_length=255)
+    age = models.IntegerField()
+    email = models.EmailField()
+
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
